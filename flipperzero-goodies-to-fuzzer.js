@@ -89,8 +89,10 @@ const sortAndFilter = () => {
 
   for (const [type, obj] of Object.entries(state)) {
     for (const [keyType, arr] of Object.entries(obj)) {
-      const filename = `${filePrefix}__${type}_${keyType}.txt`;
-      await writeFile(filename, `# ${filename.toUpperCase()}\n` + arr.join(`\n`) + `\n`);
+	  if (arr.length) {
+        const filename = `${filePrefix}__${type}_${keyType}.txt`;
+        await writeFile(filename, `# ${filename.toUpperCase()}\n` + arr.join(`\n`) + `\n`);
+      }
     }
   }
 
