@@ -43,7 +43,7 @@ const requiredLength = {
 }
 
 const getKeyType = (text) => {
-  return text.match(/Key type: ([a-zA-Z0-9]+)/)[1];
+  return text.match(/Key type: ([a-zA-Z0-9]+)/)?.[1] || `Dallas`;
 }
 
 const getKey = (text) => {
